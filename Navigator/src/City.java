@@ -4,13 +4,12 @@ public class City {
     private String cityName;
     private double latitude;
     private double longitude;
-    private ArrayList<Connection> connections;
+    private ArrayList<Connection> connections = new ArrayList<Connection>();
 
-    public City(String cityName, double latitude, double longitude, ArrayList<Connection> connections) {
+    public City(String cityName, double latitude, double longitude) {
         this.cityName = cityName;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.connections = connections;
     }
 
     // Getters
@@ -44,13 +43,18 @@ public class City {
 
     }
 
-    public void addConnection(City city) {
-        if (this == city) {
+    public void addConnection(City cityToConnect) {
+        if (this == cityToConnect) {
             System.out.println("Eine Stadt kann nicht mit sich selbst verknüpft werden.");
         } else {
-            ArrayList<Connection> connections = new ArrayList<Connection>();
-            connections.add(new Connection(this, city));
 
+            Connection connection = new Connection(this, cityToConnect);
+            connections.add(connection);
         }
     }
+
+    public ArrayList<Connection> getConnections() {
+        return connections;
+    }
+
 }
