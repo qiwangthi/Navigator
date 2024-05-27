@@ -46,13 +46,14 @@ public class Connection {
     // die Methode getOtherCity gibt die andere Stadt zurück, die mit der Verbindung
     // verbunden ist
     public City getOtherCity(City city) {
-        if (city.equals(stadt1)) {
+        if (city == stadt1) {
             return stadt2;
-        } else if (city.equals(stadt2)) {
+        } else if (city == stadt2) {
             return stadt1;
         } else {
             return null;
         }
+
     }
 
 }

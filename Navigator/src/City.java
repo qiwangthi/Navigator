@@ -43,18 +43,28 @@ public class City {
 
     }
 
+    /*
+     * Wird die Methode addConnection(City cityToConnect) aufgerufen, muss die
+     * Verbindung in beiden Städten in der ArrayList hinzugefügt werden.
+     * connection in two cities added to the ArrayList
+     */
     public void addConnection(City cityToConnect) {
-        if (this == cityToConnect) {
-            System.out.println("Eine Stadt kann nicht mit sich selbst verknüpft werden.");
-        } else {
-
-            Connection connection = new Connection(this, cityToConnect);
-            connections.add(connection);
-        }
+        Connection connection = new Connection(this, cityToConnect);
+        connections.add(connection);
+        cityToConnect.connections.add(connection);
     }
 
-    public ArrayList<Connection> getConnections() {
+    public ArrayList<Connection> getConnection() {
         return connections;
     }
 
+    /*
+     * Methode namens getRouteTo(City destination) an. So können wir später
+     * stuttgart.getRouteTo(regensburg); aufrufen und erhalten die kürzeste Route
+     * von Stuttgart nach Regensburg. Die Methode wird die Route mit allen Städten
+     * (Start, Zwischenstationen und Endpunkt) als String zurückgeben.
+     */
+    public String getRouteTo(City destination) {
+        return Route.getShortestRoute(this, destination).toString();
+    }
 }
