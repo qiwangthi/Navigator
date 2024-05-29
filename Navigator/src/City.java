@@ -52,6 +52,7 @@ public class City {
         Connection connection = new Connection(this, cityToConnect);
         connections.add(connection);
         cityToConnect.connections.add(connection);
+        this.connections.add(connection);
     }
 
     public ArrayList<Connection> getConnection() {
@@ -64,6 +65,8 @@ public class City {
      * von Stuttgart nach Regensburg. Die Methode wird die Route mit allen Städten
      * (Start, Zwischenstationen und Endpunkt) als String zurückgeben.
      */
+    // destionation variable
+
     public String getRouteTo(City destination) {
         return Route.getShortestRoute(this, destination).toString();
     }

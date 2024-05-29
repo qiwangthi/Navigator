@@ -32,7 +32,7 @@ public class App {
         nuernberg.addConnection(ulm);
 
         System.out.println(stuttgart.getRouteTo(regensburg));
-        System.out.println(ingolstadt.getRouteTo(muenchen));
+        System.out.println(nuernberg.getRouteTo(augsburg));
 
     }
 }

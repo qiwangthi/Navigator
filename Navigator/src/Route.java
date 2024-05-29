@@ -31,8 +31,8 @@ public class Route {
      * Connection zu der totalDistance der Route hinzugefügt werden.
      */
 
-    public void appendCity(City ZwischenCity, Connection connection) {
-        routeCities.add(ZwischenCity);
+    public void appendCity(City city, Connection connection) {
+        routeCities.add(city);
         if (connection != null) {
             totalDistance += connection.getDistance();
         }
@@ -49,7 +49,11 @@ public class Route {
     public String toString() {
         String route = "";
         for (City city : routeCities) {
-            route += city.getCityName() + " - ";
+            route += city.getCityName();
+            if (routeCities.indexOf(city) < routeCities.size() - 1) {
+                route += " - ";
+
+            }
         }
         return route + ";Distanz: " + totalDistance;
     }
@@ -65,7 +69,7 @@ public class Route {
                 City nextCity = c.getOtherCity(currentCity);
                 if (!currentroute.containsCity(nextCity)) {
                     Route continuedRoute = new Route(currentroute.getRouteCities(), currentroute.getTotalDistance());
-                    addALLRoutes(allpossibleRoutes, continuedRoute, nextCity, destination, c);
+                    addALLRoutes(allpossibleRoutes, continuedRoute, nextCity, destination, possibleNextCities.get(0));
                 }
             }
         }
