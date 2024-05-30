@@ -1,10 +1,13 @@
 public class Connection {
     private City stadt1, stadt2;
-    private double distance;
+    final private double distance;
 
-    public Connection(City stadt1, City stadt2) {
+    // 2 Städte und die Distanz zwischen ihnen
+    public Connection(City stadt1, City stadt2, double distance) {
         this.stadt1 = stadt1;
         this.stadt2 = stadt2;
+        // distance in ganzem Kilometer ausgeben über die Methode getDistanceInKm
+        this.distance = getDistanceInKm(stadt1, stadt2);
 
     }
 
@@ -21,9 +24,17 @@ public class Connection {
         return distance;
     }
 
-    // die Methode getDistanceInKm berechnet die Distanz zwischen zwei Städten in
-    // Kilometern
-    final double getDistanceInKm(City stadt1, City stadt2) {
+    // setter
+    public void setStadt1(City stadt1) {
+        this.stadt1 = stadt1;
+    }
+
+    public void setStadt2(City stadt2) {
+        this.stadt2 = stadt2;
+    }
+
+    // die Distanz zwischen zwei Städten in km
+    public double getDistanceInKm(City stadt1, City stadt2) {
         double lat1 = stadt1.getLatitude();
         double lon1 = stadt1.getLongitude();
         double lat2 = stadt2.getLatitude();
