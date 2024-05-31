@@ -64,7 +64,7 @@ public class Route {
 
         // speichern die sortierte Route in routesOrderedByDistance
         ArrayList<Route> routesOrderedByDistance = new ArrayList<>(allPossibleRoutes);
-        Route shortestRoute = routesOrderedByDistance.get(0);
+        Route shortestRoute = null;
         for (int i = 0; i < routesOrderedByDistance.size(); i++) {
             for (int j = i + 1; j < routesOrderedByDistance.size(); j++) {
                 if (routesOrderedByDistance.get(i).getTotalDistance() > routesOrderedByDistance.get(j)
